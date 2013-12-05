@@ -1,0 +1,7 @@
+<tr>
+<td class="sellprop">
+<span class="content"><b>Category:</b> <%= @sellprop.classificatiom%><br><b>Area:</b> <%= @sellprop.area %><br><b>Location:</b> <%= @sellprop.location %><br><b>Min Bid:</b> <%= @sellprop.min_bid %></span>
+<span class="timestamp">
+<br>Posted <%= time_ago_in_words(@sellprop.created_at) %> ago.
+</span></td>
+</tr>

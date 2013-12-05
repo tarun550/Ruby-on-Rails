@@ -1,0 +1,16 @@
+<div id="all_prop"> 
+<% if @show_heading==1 %>
+<h1>All Bids</h1>
+<% end %>
+<ul id="property">
+<% @current.each do |current| %>
+<% if Bid.find_by_sellprop_id(current.id) %>
+<li>
+<span><b>Category:</b> <%= current.classificatiom %><br><b>Area:</b> <%= current.area %><br><b>Location:</b> <%= current.location %><br><b>Your Bid:</b> <%= Bid.find_by_sellprop_id(current.id).bid_val %></span>	
+<%= link_to "modify your bid",modify_bid_sellprop_path(current) %>
+<br><br>
+</li>
+<% end %>
+<% end %>
+</ul>
+</div>

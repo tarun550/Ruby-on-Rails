@@ -1,0 +1,9 @@
+<% unless current_user?(@user) %>
+<div id="follow_form">
+<% if current_user.bidding?(@sellprop) %>
+<%= render 'unbid_button' %>
+<% else %>
+<%= render 'bidform' %>
+<% end %>
+</div>
+<% end %>

@@ -1,0 +1,6 @@
+<% if @bids.empty? %>
+<p>You have not bidded yet!<br>Apply now!</p>
+<% else %>
+<p> Your current bids are </p>
+<%= render 'users/bids' %>
+<% end %>

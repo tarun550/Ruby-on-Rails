@@ -1,0 +1,22 @@
+<%= form_for @sellprop do |f| %>
+<%= render 'shared/error_messages', :object => f.object %>
+<div class="field">
+<%= f.label :classificatiom %><br />
+<%= f.text_field :classificatiom %>
+</div>
+<div class="field">
+<%= f.label :area %><br />
+<%= f.text_field :area %>
+</div>
+<div class="field">
+<%= f.label :location %><br />
+<%= f.text_field :location %>
+</div>
+<div class="field">
+<%= f.label :min_bid %><br />
+<%= f.text_field :min_bid %>
+</div>
+<div class="actions">
+<%= f.submit "Submit" %>
+</div>
+<% end %>

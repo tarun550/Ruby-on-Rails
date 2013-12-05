@@ -1,0 +1,10 @@
+<%= form_for @old_bid, :url =>update_bid_sellprop_path(@sellprop) do |f| %>
+<div class="field">
+<%= f.label :please_enter_your_new_bid %><br>
+<%= f.text_field :bid_val %>
+<br>
+<%= check_box_tag(:delete_bid,'selected' ) %>
+<%= label_tag(:delete_bid, "Delete this bid") %>
+</div>
+<div class="actions"><%= f.submit "Update Bid" %></div>
+<% end %>

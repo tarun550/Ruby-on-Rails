@@ -1,0 +1,32 @@
+<table class="profile" summary="Profile information">
+<tr>
+<td class="main">
+<h1>
+<%= gravatar_image_tag @user.email, :class => "gravatar" %>
+<%= @user.name %>
+</h1>
+<% if !@user.sellprops.empty? and current_user!=@user %>
+<p>This user's all submitted entries are</p>
+<table class="sellprops" summary="User sellprops">
+<%= render @sellprops %>
+</table>
+<% elsif current_user!=@user and @user.sellprops.empty? %>
+<p>This user has not submitted any property yet!</p>
+<% elsif current_user==@user and @user.sellprops.empty? %>
+<p>You have not listed any property with us </p>
+<% elsif current_user==@user and !@user.sellprops.empty? %>
+<p>Your all properties are<br></p>
+<table class="sellprops" summary="User sellprops">
+<%= render @sellprops %>
+</table>
+<% end %>
+<td class="sidebar round">
+<strong>Name</strong> <%= @user.name %><br />
+<strong><%= link_to "Your Profile", @user %></strong><br />
+<strong>Properties Listed</strong> <%= @user.sellprops.count %><br>
+<strong>Bids Listed</strong> <%= @user.bids.count %><br>
+<strong><%= link_to "Your Bids", current_user.id.to_s + "/bids" %></strong><br />
+</td>
+</tr>
+</table>
+<p style="padding-left:15px;"><%= current_user.name %> to create a new lisitng click <%= link_to "here", root_path %></p>

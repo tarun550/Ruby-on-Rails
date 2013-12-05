@@ -1,0 +1,24 @@
+<div id="all_prop"> 
+<% if @show_heading==1 %>
+<h1>All properties</h1>
+<% end %>
+<ul id="property">
+<% @sellprops.each do |sellprop| %>
+<li>
+<span><b>Category:</b> <%= sellprop.classificatiom %><br><b>Area:</b> <%= sellprop.area %><br><b>Location:</b> <%= sellprop.location %><br><b>Min Bid:</b> <%= sellprop.min_bid %></span>
+<span class="timestamp">
+<br>Posted <%= time_ago_in_words(sellprop.created_at) %> ago.
+</span>
+<% if current_user?(sellprop.user) %>
+<%= link_to "delete",sellprop, :method => :delete,
+:confirm => "You sure?" %>
+<% elsif current_user.bids.find_by_sellprop_id(sellprop.id) %>
+<%= link_to "modify your bid",modify_bid_sellprop_path(sellprop) %>
+<% else %>
+<%= link_to "bid for this property",apply_sellprop_path(sellprop) %>
+<% end %>
+<br><br>
+</li>
+<% end %>
+</ul>
+</div>

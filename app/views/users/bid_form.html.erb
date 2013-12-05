@@ -1,0 +1,9 @@
+<%= form_for @new_bid, :url => { :action => "create_bid" } do |f| %>
+<div><%= f.hidden_field :sellprop_id, :value => @sellprop.id %></div>
+<div><%= f.hidden_field :buyer_id, :value => @user.id %></div>
+<div class="field">
+<%= f.label :bid_val %><br/>
+<%= f.text_field :bid_val %>
+</div>
+<div class="actions"><%= f.submit "Submit Bid" %></div>
+<% end %>
